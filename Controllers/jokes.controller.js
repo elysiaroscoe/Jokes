@@ -21,7 +21,7 @@ module.exports.createNewJoke = (req, res) => {
 }
 
 module.exports.updateJoke = (req,res) => {
-    Joke.findOneAndUpdate(
+    Joke.findByIdAndUpdate(
         { _id: req.params.id },
         req.body,
         { new: true, runValidators: true }
@@ -32,7 +32,7 @@ module.exports.updateJoke = (req,res) => {
 }
 
 module.exports.deleteJoke = (req,res) => {
-    Joke.findOneAndDelete({ _id: req.params.id })
+    Joke.findByIdAndDelete({ _id: req.params.id })
     .then(result => res.json({ result: result }))
     .catch(err => res.json({ message: "Something went wrong", error: err}))
 }
