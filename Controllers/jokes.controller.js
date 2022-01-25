@@ -9,7 +9,7 @@ module.exports.findAllJokes = (req,res) => {
 }
 
 module.exports.findOneJoke = (req,res) => {
-    Joke.findOne({ _id: req.params.id })
+    Joke.findById({ _id: req.params.id })
     .then(oneJoke => res.json({ joke: oneJoke}))
     .catch(err => res.json({ message: "Something went wrong", error: err}))
 }
