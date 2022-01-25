@@ -32,7 +32,7 @@ module.exports.updateJoke = (req,res) => {
 }
 
 module.exports.deleteJoke = (req,res) => {
-    Joke.deleteOne({ _id: req.params.id })
+    Joke.findOneAndDelete({ _id: req.params.id })
     .then(result => res.json({ result: result }))
     .catch(err => res.json({ message: "Something went wrong", error: err}))
 }
